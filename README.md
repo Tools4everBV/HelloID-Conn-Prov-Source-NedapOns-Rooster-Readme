@@ -52,6 +52,8 @@ The following settings are required to connect to the API.
 | Environment URL API             | https://api-staging.ons.io                                                                                  |
 | Certificate (.PFX) Path         | Full path to Certificate Nedap-cert.pfx                                                                    |
 | Certificate Password            | Password of the certificate                                                                                 |
+| Start Day                       | The number of days in the past to start collecting data. Assignments or visits with an earlier startdate will not be collected |
+| Total number of days collected  | Assignments or vistits with a startdate later than this number of days after the "start day", will not be collected |
 | CollectShiftAssignments         | Collect the Shift Assignments (toggle)                                                                   |
 | CollectPlannedVisits            | Collect the planned visits (toggle)
 
@@ -61,11 +63,12 @@ The following settings are required to connect to the API.
  Each shift assignment of an employee results in a contract where the field "T4eType" has the value "NedapShiftAssignment".
  Each planned visit of an employee results in a contract where the field "T4eType" has the value "NedapPlannedVisit"
 
- ShiftsAssignments for each employee are collected, for startdates of  Yesterday, today and tomorrow only.
-
+ ShiftsAssignments for each employee are collected, for startdates as specified in de configuration.
  Planned visits are also collected for the period containing Yesterday, today and tomorrow.
 
- Warning: Collecting planned visits can take a considerable time, wich may exceed allowed HelloID limits for larger numbers of emloyees.
+ Warning: Collecting planned visits can take a considerable time, as there is one call per user required, wich may exceed allowed HelloID limits for larger numbers of emloyees.
+
+ Warning: Collecting Shift assignments may take a considerable time if the "total number of days collected" is large, as it requires a separate Api call for each hour in the period. Default setting is therefore 3 days.
 
 ## Getting help
 
