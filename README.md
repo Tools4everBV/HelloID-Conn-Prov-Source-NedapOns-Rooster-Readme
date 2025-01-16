@@ -66,7 +66,7 @@ The following settings are required to connect to the API.
  ShiftsAssignments for each employee are collected, for startdates as specified in de configuration.
  Planned visits are also collected for the period containing Yesterday, today and tomorrow.
 
- Warning: Collecting planned visits can take a considerable time, as there is one call per user required, wich may exceed allowed HelloID limits for larger numbers of emloyees.
+ Warning: Collecting planned visits can take a considerable time, as there is one call per user required, which may exceed allowed HelloID limits for larger numbers of emloyees.
 
  Warning: Collecting Shift assignments may take a considerable time if the "total number of days collected" is large, as it requires a separate Api call for each hour in the period. Default setting is therefore 3 days.
 
