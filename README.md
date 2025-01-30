@@ -57,7 +57,7 @@ The following settings are required to connect to the API.
 | Start Day                       | The number of days in the past to start collecting data. Assignments or visits with an earlier startdate will not be collected |
 | Total number of days collected  | Assignments or vistits with a startdate later than this number of days after the "start day", will not be collected |
 | CollectShiftAssignments         | Collect the Shift Assignments (toggle)                                                                   |
-| CollectPlannedVisits            | Collect the planned visits (toggle)
+| CollectPlannedVisits            | Collect the planned visits (toggle) |
 
 ### Prerequisites
 
