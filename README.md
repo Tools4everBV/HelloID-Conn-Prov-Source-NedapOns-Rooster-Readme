@@ -26,7 +26,6 @@
     - [Custom fields in the primary source connector](#custom-fields-in-the-primary-source-connector)
     - [Primary Contract calculation, Aggregation and Exclusions](#primary-contract-calculation-aggregation-and-exclusions)
     - [No function data available](#no-function-data-available)
-- [Setup the connector](@Setup-The-Connector)
 - [Getting help](#getting-help)
 - [HelloID Docs](#helloid-docs)
 
