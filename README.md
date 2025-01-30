@@ -19,8 +19,13 @@
 - [Getting started](#getting-started)
   - [Connection settings](#connection-settings)
   - [Prerequisites](#prerequisites)
-  - [Custom fields](#customfields)
+    - [Custom Fields]](#custom-fields)
   - [Remarks](#remarks)
+    - [Shift assignments](#shift-assignments)
+    - [Planned visits](#planned-visits)
+    - [Custom fields in the primary source connector](#custom-fields-in-the-primary-source-connector)
+    - [Primary Contract calculation, Aggregation and Exclusions](#primary-contract-calculation-aggregation-and-exclusions)
+    - [No function data available](#no-function-data-available)
 - [Setup the connector](@Setup-The-Connector)
 - [Getting help](#getting-help)
 - [HelloID Docs](#helloid-docs)
@@ -57,6 +62,8 @@ The following settings are required to connect to the API.
 
 ### Prerequisites
 
+#### Custom fields
+
 The following custom fields should be created before importing the mapping:
 
 - Contract field: [primarySource]
@@ -90,10 +97,12 @@ Example:
 - Warning: Collecting planned visits can take a considerable time, as there is one call per user required, which may exceed allowed HelloID limits for larger numbers of emloyees.
 
 #### Custom fields in the primary source connector
+
 - Add the field Custom.primarySource to the primary source connector (ie AFAS) and set the type to fixed, value 1
 - Add a the field Custom.sourceSystem to the primary source connector (ie AFAS) and set the type to fixed, value <NameOfSourceConnector> ie: AFAS
 
 #### Primary Contract calculation, Aggregation and Exclusions
+
 - The primary contract calculation should be changed, so that Custom.primarySource is the first custom field in the list, sorted descending. This makes sure that the person records of the primary source connector are always primary.
 - The connector is configured to aggregate the person data based on the user's employeeId. A prefix and suffix are added to each employeeId. The aggregation script must be set up in the primary source system before importing the Nedap Ons Roster source. When using employeeId as the aggregation key, suggestions should be disabled.
 - Aggregation can also be set up based on birth date, gender, birth name, and initials if this information is recorded in Nedap and matches the data in the primary source system.
@@ -101,7 +110,9 @@ Example:
 - Please note that the pre-offboarding notification will still trigger, even if the person is excluded.
 
 #### No function data available
+
 - Since function data is not available, business rules can only be created based on department data. It is not possible to create business rules that combine department and function data.
+- The mapping includes a fixed function with ExternalId N01 and the name NedapOnsRooster.
 
 ## Getting help
 
