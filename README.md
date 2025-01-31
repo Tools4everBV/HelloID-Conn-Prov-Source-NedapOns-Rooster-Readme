@@ -19,7 +19,7 @@
 - [Getting started](#getting-started)
   - [Connection settings](#connection-settings)
   - [Prerequisites](#prerequisites)
-    - [Custom Fields]](#custom-fields)
+  - [Custom Fields]](#custom-fields)
   - [Remarks](#remarks)
     - [Shift assignments](#shift-assignments)
     - [Planned visits](#planned-visits)
