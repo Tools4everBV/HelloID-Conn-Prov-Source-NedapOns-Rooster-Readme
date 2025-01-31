@@ -69,7 +69,7 @@ The following custom fields should be created before importing the mapping:
 
 - Contract field: [sourceSystem]
 
-- Contract field: [NedapOnsIdentificationNo] with a combination of the employeeCode and EmploymentCode.
+- Contract field: [NedapOnsIdentificationNo] with a combination of the employeeId and employmentId.
 
 Example:
 
