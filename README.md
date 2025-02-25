@@ -58,6 +58,8 @@ The following settings are required to connect to the API.
 | Total number of days collected  | Assignments or vistits with a startdate later than this number of days after the "start day", will not be collected |
 | CollectShiftAssignments         | Collect the Shift Assignments (toggle)                                                                   |
 | CollectPlannedVisits            | Collect the planned visits (toggle) |
+| FilterPersonPrefix              | Do not import persons with this specific employeeId prefix |
+| Toggle debug logging            | Turn on debug logging (toggle) |
 
 ### Prerequisites
 
