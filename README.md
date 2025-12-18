@@ -36,12 +36,12 @@ It collects the Employees from nedap, including their shiftassignments and/or th
 
 The HelloID connector uses the API endpoints listed in the table below.
 
-| Endpoint     | Description |
-| ------------ | ----------- |
-| ./t/employees/x-stream-connect/data             | The list of employees  |
-| ./t/moves/shift_assignments/starting_between    | The list of shift assigments  |
-| ./t/employees/{employee_id}/planned_visits | The list of planned visits for an employee |
-| ./t/teams/x-stream-connect/data |The list of teams, to lookup the information for the teams |
+| Endpoint                                                          | Description                                                |
+| ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| /v0/xstream/employees/data                                        | The list of employees                                      |
+| /v0/plannen_roosteren/shift_assignments/starting_between          | The list of shift assignments                              |
+| /v0/plannen_roosteren/planned_visits/by_employee_id/{employee_id} | The list of planned visits for an employee                 |
+| /v0/xstream/teams/data                                            | The list of teams, to lookup the information for the teams |
 
 ## Getting started
 
