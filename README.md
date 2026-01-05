@@ -15,19 +15,22 @@
 
 ## Table of contents
 
-- [Introduction](#introduction)
-- [Getting started](#getting-started)
-  - [Connection settings](#connection-settings)
-  - [Prerequisites](#prerequisites)
-  - [Custom Fields](#custom-fields)
-  - [Remarks](#remarks)
-    - [Shift assignments](#shift-assignments)
-    - [Planned visits](#planned-visits)
-    - [Custom fields in the primary source connector](#custom-fields-in-the-primary-source-connector)
-    - [Primary Contract calculation, Aggregation and Exclusions](#primary-contract-calculation-aggregation-and-exclusions)
-    - [No function data available](#no-function-data-available)
-- [Getting help](#getting-help)
-- [HelloID Docs](#helloid-docs)
+- [HelloID-Conn-Prov-Source-NedapOns-Rooster-Readme](#helloid-conn-prov-source-nedapons-rooster-readme)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Getting started](#getting-started)
+    - [Connection settings](#connection-settings)
+    - [Prerequisites](#prerequisites)
+      - [Custom fields](#custom-fields)
+    - [Remarks](#remarks)
+      - [Shift assignments](#shift-assignments)
+      - [Planned visits](#planned-visits)
+      - [Expertise Profiles (Deskundigheid)](#expertise-profiles-deskundigheid)
+      - [Custom fields in the primary source connector](#custom-fields-in-the-primary-source-connector)
+      - [Primary Contract calculation, Aggregation and Exclusions](#primary-contract-calculation-aggregation-and-exclusions)
+      - [No function data available](#no-function-data-available)
+  - [Getting help](#getting-help)
+  - [HelloID docs](#helloid-docs)
 
 ## Introduction
 
@@ -41,6 +44,8 @@ The HelloID connector uses the API endpoints listed in the table below.
 | /v0/xstream/employees/data                                        | The list of employees                                      |
 | /v0/plannen_roosteren/shift_assignments/starting_between          | The list of shift assignments                              |
 | /v0/plannen_roosteren/planned_visits/by_employee_id/{employee_id} | The list of planned visits for an employee                 |
+| /v0/administration/expertise_profiles                             | The list of expertise profiles (deskundigheid)             |
+| /v0/xstream/expertise_profile_assignments/data                    | The list of expertise profile assignments per employee     |
 | /v0/xstream/teams/data                                            | The list of teams, to lookup the information for the teams |
 
 ## Getting started
@@ -58,6 +63,7 @@ The following settings are required to connect to the API.
 | Total number of days collected  | Assignments or vistits with a startdate later than this number of days after the "start day", will not be collected |
 | CollectShiftAssignments         | Collect the Shift Assignments (toggle)                                                                   |
 | CollectPlannedVisits            | Collect the planned visits (toggle) |
+| CollectExpertiseProfiles        | Collect Expertise Profiles (Deskundigheid) - only active assignments are collected |
 | FilterPersonPrefix              | Do not import persons with this specific employeeId prefix |
 | Toggle debug logging            | Turn on debug logging (toggle) |
 
@@ -93,9 +99,13 @@ Example:
 
 #### Planned visits
 
-- Importing of planned visits can be enabled by setting the configuration toggle CollectShiftAssignments
-- Planned visits are also collected for the period containing Yesterday, today and tomorrow.
-- Warning: Collecting planned visits can take a considerable time, as there is one call per user required, which may exceed allowed HelloID limits for larger numbers of emloyees.
+- Importing of planned visits can be enabled by setting the configuration toggle `CollectPlannedVisits`
+- Planned visits are collected for the period as specified in the configuration (Start Day and Total number of days)
+- Warning: Collecting planned visits can take a considerable time, as there is one call per user required, which may exceed allowed HelloID limits for larger numbers of employees.
+
+#### Expertise Profiles (Deskundigheid)
+- Importing of expertise profiles can be enabled by setting the configuration toggle `CollectExpertiseProfiles`
+- The expertise profiles are added to the HelloID Contracts
 
 #### Custom fields in the primary source connector
 
